@@ -1,15 +1,102 @@
 from django.shortcuts import render
-
+import json 
+from django.http import JsonResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
-def register():
-    print ("registered")
+#register
+@csrf_exempt
+def register(request):
+    #request method check
+    if request.method != "POST":
+        return JsonResponse({"error": "POST request required"})
+    
+    try:
+        data = json.load(request.body)
+        username = data.get('username')
+        email= data.get('email')
+        password = data.get('password')
+
+        if not username or not password:
+            return JsonResponse({"error":"Username and password is required"})
+        
+        if User.objects.filter()
+ 
+
+    except json.JSONDecodeError:
+                return JsonResponse({"error": "Invalid JSON"}, status=400)
 
 
-def login():
-    print("logged in")
 
 
 
-def logout():
-    print("logged out")
+#register
+
+
+
+
+
+
+
+
+
+@csrf_exempt
+def login(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST request required"}, status=405)
+
+    try:
+        data = json.loads(request.body)
+
+        username = data.get("username")
+        password = data.get("password")
+
+        if not username or not password:
+            return JsonResponse({"error": "Username and password required"}, status=400)
+
+        user = authenticate(username=username, password=password)
+
+        if user is None:
+            return JsonResponse({"error": "Invalid credentials"}, status=401)
+
+        django_login(request, user)
+
+        return JsonResponse({"message": "Login successful"})
+
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON"}, status=400)
+
+
+
+@csrf_exempt
+def logout(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST request required"}, status=405)
+
+    django_logout(request)
+    return JsonResponse({"message": "Logout successful"})
+
+@csrf_exempt
+def forgot_password(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST request required"}, status=405)
+
+    try:
+        data = json.loads(request.body)
+        email = data.get("email")
+
+        if not email:
+            return JsonResponse({"error": "Email required"}, status=400)
+
+        if not User.objects.filter(email=email).exists():
+            return JsonResponse({"error": "User not found"}, status=404)
+
+        # In real apps: send reset email
+        return JsonResponse({
+            "message": "Password reset link would be sent here"
+        })
+
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON"}, status=400)
