@@ -14,30 +14,29 @@ def register(request):
         return JsonResponse({"error": "POST request required"})
     
     try:
-        data = json.load(request.body)
+        data = json.loads(request.body)
         username = data.get('username')
         email= data.get('email')
         password = data.get('password')
 
-        if not username or not password:
+        if not username or not password or not email:
             return JsonResponse({"error":"Username and password is required"})
         
-        if User.objects.filter()
+        if User.objects.filter(username = username).exists():
+           return JsonResponse({"error":"User already exists"}, status=400)
+        
+        user = User.objects.create_user(
+            username= username,
+            email=email,
+            password=password
+        )
+        return JsonResponse({"message":"User registered successfully"},status=200)
+    
  
-
     except json.JSONDecodeError:
                 return JsonResponse({"error": "Invalid JSON"}, status=400)
 
-
-
-
-
 #register
-
-
-
-
-
 
 
 
