@@ -1,8 +1,37 @@
 import React from 'react'
 import styled from "styled-components";
 import RlButton from './elementComponent/Button/Button';
+import { useNavigate } from "react-router-dom";
+import useFetch from '../hooks/useFetch.js'
 const Navbar = () => {
+const url ="http://127.0.0.1:8000/api/logout/"
+const {fetchData} = useFetch(url);
+const navigate = useNavigate();
+
+
+const logout= async ()=>
+{
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  if(isLoggedIn === "true"){
+const options = {
+  method: "POST",
+  headers:{
+    'Content-Type': "application/json"
+  },
+  credentials: "include"
+}
+const result = await fetchData(options);
+if(result.message)
+{
+ localStorage.removeItem("isLoggedIn",'email',"username");
+navigate("/register");
+}
+
+  }
+}
+
   return <NavBar>
+    
 <ul>
 <li href="#">Product</li>
 <li href="#">Profile</li>
@@ -10,7 +39,7 @@ const Navbar = () => {
 <li href="#">Face Scanning Page</li>
 <RlButton name="LogIn" link="/login"/>
 <RlButton name="Register" link="/register"/>
-<RlButton name="LogOut" link=""/>
+<RlButton name="LogOut" onClick={logout}/>
 </ul>
   </NavBar>
 }

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import useFetch from '../hooks/useFetch'
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const url ="http://127.0.0.1:8000/api/login/"
   const {error , loading, fetchData} = useFetch(url)
@@ -11,6 +11,7 @@ const Login = () => {
   })
  const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const navigate = useNavigate();
   if(error){
     alert(error)
   }
@@ -45,17 +46,12 @@ const result = await fetchData(options);
           emailOrUsername: "",
           password: "",
         });
+        localStorage.setItem("isLoggedIn" , true);
+        navigate('/')
       } else {
         setErrorMessage(result.error || "login failed.");
       }
-
-
 }
-
-  
-
-
-
 
 
   return (

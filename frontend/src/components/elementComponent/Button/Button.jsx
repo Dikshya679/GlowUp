@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const RlButton = ({name,link}) => {
+const RlButton = ({name,link,onClick}) => {
   return <a href={link}>
-    <RLButton>{name} 
+    <RLButton onClick={onClick}>{name} 
   </RLButton>
   </a>
 }
