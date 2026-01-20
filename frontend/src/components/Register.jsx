@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import useFetch from '../hooks/useFetch';
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const url = "http://127.0.0.1:8000/api/register/";
-  const { error, loading, fetchData } = useFetch(url);
-
+  const {loading, fetchData } = useFetch(url);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -15,16 +14,12 @@ const Register = () => {
     confirm_password: ""
   });
 
-  // State to hold form errors
+  const navigate =useNavigate();
+
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
 
-  // Effect to catch errors from the fetch hook
-    if (error) {
-      setErrorMessage(error);
-    }
 
-  // Handle form input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -32,7 +27,7 @@ const Register = () => {
     });
   };
 
-  // Handle form submission
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -71,6 +66,7 @@ const Register = () => {
           password: "",
           confirm_password: ""
         });
+      navigate('/login')
       } else {
         setErrorMessage(result.error || "Registration failed.");
       }
