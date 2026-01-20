@@ -33,10 +33,10 @@ navigate("/register");
   return <NavBar>
     
 <ul>
-<li href="#">Product</li>
-<li href="#">Profile</li>
-<li href="#">Skin Data FillUp form</li>
-<li href="#">Face Scanning Page</li>
+<li href="/product">Product</li>
+<li href="/profile">Profile</li>
+<li href="/datafillUp">Skin Data form</li>
+<li href="/faceScanPage">Face Scan</li>
 <RlButton name="LogIn" link="/login"/>
 <RlButton name="Register" link="/register"/>
 <RlButton name="LogOut" onClick={logout}/>
@@ -69,8 +69,8 @@ ul li{
   &:hover{
 background-color: #86A788;
 color: white;
-transition: all 0.1s ease-out;
-border: 1px transparent solid;
+transition: all 0.05s ease-in-out;
+/* border: 1px transparent solid; */
 border-radius:10%;
 padding: 5px;
 transform: translateY(-5px);

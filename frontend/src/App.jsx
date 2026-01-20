@@ -18,6 +18,7 @@ const App = () => {
  <Route path="/product" element={<ProductPage />} index/>
  <Route path="/profile" element={<ProfilePage />} />
 <Route path="/datafillUp" element={<SkinDataForm />} />
+<Route path="/faceScanPage" element={<SkinDataForm />} />
 </Route>
 
 </Routes>
