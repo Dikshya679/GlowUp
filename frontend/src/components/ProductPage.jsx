@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import RlButton from './elementComponent/Button/Button'
 import SimpleButton from './elementComponent/Button/simpleButton';
 import ProductCard from './elementComponent/recommendedProduct';
-
 const ProductPage = () => {
+
 
 const filterButtons=[
   // {
@@ -81,7 +81,7 @@ const products= [
 </div>
   </div>
 
-<div className="products">
+<div className="productContainer">
   <h3>Recommended products</h3>
 <div className="RecommendedProducts">
  {products.map((product, index)=>(
@@ -89,6 +89,9 @@ const products= [
  ))}
 </div>
 <h3>Products</h3>
+<div className="products">
+
+</div>
 </div>
   </MainContainer>
 }
@@ -142,7 +145,7 @@ input{
 }
 
 }
-.products{
+.productContainer{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,6 +168,15 @@ width: 100%;
 justify-content: space-around;
 gap: 20px;
 scrollbar-width: none;
+}
+.products{
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  scrollbar-width:none;
+width: 100%;
+height: fit-content;
 }
 `;
 

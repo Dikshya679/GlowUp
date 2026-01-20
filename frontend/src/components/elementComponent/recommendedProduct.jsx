@@ -1,5 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import RlButton from './Button/Button';
+
+
+
+
+
 
 const ProductCard = ({ product }) => {
   return (
@@ -32,6 +38,9 @@ const ProductCard = ({ product }) => {
 
         {/* <p className="description">{product.description}</p> */}
       </Info>
+      <div className='addToCart'>
+<RlButton name="Add to Cart"/>
+      </div>
     </Card>
   );
 };
@@ -41,7 +50,7 @@ export default ProductCard;
 // ===== Styled Components =====
 const Card = styled.div`
   width: 300px;
-  height: 400px;
+  height: 450px;
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
@@ -49,17 +58,28 @@ const Card = styled.div`
   flex: 0 0 auto;
   margin: 10px;
   padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  .addToCart{
+    position: absolute;
+    bottom: 20px;
+   
+  }
 `;
 
 const ImageWrapper = styled.div`
   width: 100%;
-  height: 180px;
-  background: #f5f5f5;
+  height: 200px;
+  padding: 10px;
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    transform: scale(1.3);
   }
 `;
 
