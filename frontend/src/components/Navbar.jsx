@@ -36,8 +36,6 @@ navigate("/login");
   }
 }
 
-
-
   return <NavBar>
     
 <ul>
@@ -45,6 +43,7 @@ navigate("/login");
   <li><Link to="/profile">Profile</Link></li>
   <li><Link to="/datafillUp">Skin Data form</Link></li>
   <li><Link to="/faceScanPage">Face Scan</Link></li>
+  <li><Link to="/Searchproducts">SearchResults</Link></li>
 {!loginStatus && <RlButton name="LogIn" link="/login"/>}
 { !loginStatus  && <RlButton name="Register" link="/register"/>}
 {loginStatus && <RlButton name="LogOut" onClick={logout}/>}
