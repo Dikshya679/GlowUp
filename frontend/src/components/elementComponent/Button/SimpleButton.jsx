@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const SimpleButton = ({name}) => {
-  return <Button>{name}
+const SimpleButton = ({name,isSelected,onClick}) => {
+  return <Button $isSelected={isSelected} onClick={onClick}>{name}
   </Button>
 }
 
@@ -14,8 +14,8 @@ outline: none;
 border: none;
 border-radius: 10px;
 font-weight: 900;
-background-color:white ;
-color: #86A788;
+background-color:${({$isSelected})=> ($isSelected? "#86A788":"white")};
+color: ${({$isSelected})=> ($isSelected? "white":"#86A788")};
 /* border-radius: 15px 40px 15px 10px; */
 &:hover{
   background-color: #86A788;

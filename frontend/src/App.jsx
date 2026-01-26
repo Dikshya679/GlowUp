@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import MainLayout from "./components/MainLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SearchResults from './components/elementComponent/SearchResults';
 
 const App = () => {
   return <>
@@ -19,6 +20,7 @@ const App = () => {
  <Route path="/profile" element={<ProfilePage />} />
 <Route path="/datafillUp" element={<SkinDataForm />} />
 <Route path="/faceScanPage" element={<SkinDataForm />} />
+<Route path="/Searchproducts" element={<SearchResults />} />
 </Route>
 
 </Routes>
