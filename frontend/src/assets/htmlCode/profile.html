@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GlowUp Dashboard</title>
+
+    <style>
+        :root {
+            --primary: #3f6f59;
+            --secondary: #86a788;
+            --bg: #86A788 ;
+            --card: #ffffff;
+            --text-dark: #2e2e2e;
+            --text-light: #6b6b6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-dark);
+        }
+
+       
+        .navbar {
+            padding: 18px 50px;
+            background: var(--card);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .navbar h2 {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+     
+        .container {
+            display: flex;
+            gap: 32px;
+            padding: 40px 50px;
+        }
+
+   
+        .left {
+            width: 30%;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            width: 110px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+        }
+
+        .profile h3 {
+            margin-bottom: 5px;
+        }
+
+        .profile p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .stats div {
+            text-align: center;
+        }
+
+        .stats h4 {
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .stats p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #2f5745;
+        }
+
+       
+        .right {
+            width: 70%;
+        }
+
+        .right h1 {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+
+        .right p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .right h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .routine .item {
+            background: var(--card);
+            padding: 18px 22px;
+            border-radius: 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 20px rgba(12, 12, 12, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item h4 {
+            font-size: 16px;
+        }
+
+        .item p {
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .badge {
+            background: #e9f3ee;
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <h2>✨ GlowUp</h2>
+</header>
+
+<div class="container">
+
+ 
+    <div class="left">
+        <div class="card profile">
+            <img src="https://via.placeholder.com/110" alt="profile">
+            <h3>Sarah Anderson</h3>
+            <p>Combination Skin 
+                <br><br>
+                 24 Years</p>
+
+            <div class="status">
+                <div>
+                    <h4></h4>
+                    <p></p>
+                </div>
+                <div>
+                    <h4></h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h4>Skin Analysis</h4>
+            <p style="margin: 10px 0 20px; color: var(--text-light);">
+            </p>
+            <button>Start New Scan</button>
+        </div>
+    </div>
+
+   
+    <div class="right">
+        <h1>Good Morning, Sarah 🌞</h1>
+        <p>Your skin looks radiant today. Keep up the great routine.</p>
+
+
+        <div class="routine">
+            <div class="item">
+                <div>
+                    <h4>cmkcdnjdsnjcn</h4>
+                    <p>Cleanser • Daily</p>
+                </div>
+                <span class=""></span>
+            </div>
+
+            <div class="item">
+                <div>
+                    <h4>ncjdsbchbdscbdsb</h4>
+                    <p>Serum • Daily</p>
+                </div>
+                <span class=""></span>
+            </div>
+
+            <div class="item">
+                <div>
+                    <h4> nnmcxnvbdjvjdn</h4>
+                    <p>Sunscreen • Daily</p>
+                </div>
+                <span class=""></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

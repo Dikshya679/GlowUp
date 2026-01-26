@@ -1,111 +1,20 @@
-import React from "react";
-import { styled } from 'styled-components';
-const Dashboard = () => {
-  return (
-    <ProfileContainer>
-      <header className="navbar">
-        <h2>✨ GlowUp</h2>
-      </header>
-
-      <div className="container">
-        <div className="left">
-          <div className="card profile">
-            <img
-              src="https://via.placeholder.com/110"
-              alt="profile"
-            />
-
-            <h3>Sarah Anderson</h3>
-
-            <p>
-              Combination Skin
-              <br />
-              <br />
-              24 Years
-            </p>
-
-            <div className="status">
-              <div>
-                <h4></h4>
-                <p></p>
-              </div>
-              <div>
-                <h4></h4>
-                <p></p>
-              </div>
-            </div>
-          </div>
-
-          <div className="card">
-            <h4>Skin Analysis</h4>
-
-            <p
-              style={{
-                margin: "10px 0 20px",
-                color: "var(--text-light)",
-              }}
-            >
-            </p>
-
-            <button>Start New Scan</button>
-          </div>
-        </div>
-
-        <div className="right">
-          <h1>Good Morning, Sarah 🌞</h1>
-          <p>Your skin looks radiant today. Keep up the great routine.</p>
-
-          <div className="routine">
-            <div className="item">
-              <div>
-                <h4>cmkcdnjdsnjcn</h4>
-                <p>Cleanser • Daily</p>
-              </div>
-              <span className="" />
-            </div>
-
-            <div className="item">
-              <div>
-                <h4>ncjdsbchbdscbdsb</h4>
-                <p>Serum • Daily</p>
-              </div>
-              <span className="" />
-            </div>
-
-            <div className="item">
-              <div>
-                <h4>nnmcxnvbdjvjdn</h4>
-                <p>Sunscreen • Daily</p>
-              </div>
-              <span className="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </ProfileContainer>
-  );
-};
-
-export default Dashboard;
-
-const ProfileContainer = styled.main`
-   /* :root {
+ :root {
             --primary: #3f6f59;
             --secondary: #86a788;
             --bg: #86A788 ;
             --card: #ffffff;
             --text-dark: #2e2e2e;
             --text-light: #6b6b6b;
-        } */
+        }
       
         .navbar {
             padding: 18px 50px;
-            background: #ffffff;
+            background: var(--card);
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .navbar h2 {
-            color:  #3f6f59;
+            color: var(--primary);
             font-weight: 600;
         } 
 
@@ -122,7 +31,7 @@ const ProfileContainer = styled.main`
         }
 
         .card {
-            background: #ffffff;
+            background: var(--card);
             padding: 25px;
             border-radius: 18px;
             margin-bottom: 25px;
@@ -144,7 +53,7 @@ const ProfileContainer = styled.main`
         }
 
         .profile p {
-            color: #6b6b6b;
+            color: var(--text-light);
             font-size: 14px;
         }
 
@@ -159,17 +68,17 @@ const ProfileContainer = styled.main`
         }
 
         .stats h4 {
-            color:  #3f6f59;
+            color: var(--primary);
             font-size: 22px;
         }
 
         .stats p {
             font-size: 13px;
-            color: #6b6b6b;
+            color: var(--text-light);
         }
 
         button {
-            background:  #3f6f59;
+            background: var(--primary);
             color: white;
             border: none;
             padding: 12px;
@@ -196,17 +105,17 @@ const ProfileContainer = styled.main`
         }
 
         .right p {
-            color: #6b6b6b;
+            color: var(--text-light);
             margin-bottom: 25px;
         }
 
         .right h3 {
             margin-bottom: 15px;
-            color:  #3f6f59;
+            color: var(--primary);
         }
 
         .routine .item {
-            background: #ffffff;
+            background: var(--card);
             padding: 18px 22px;
             border-radius: 16px;
             margin-bottom: 14px;
@@ -222,16 +131,14 @@ const ProfileContainer = styled.main`
 
         .item p {
             font-size: 13px;
-            color:#2e2e2e;
+            color: var(--text-dark);
         }
 
         .badge {
             background: #e9f3ee;
-            color:  #3f6f59;
+            color: var(--primary);
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
         } 
-
-`;

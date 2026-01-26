@@ -1,80 +1,11 @@
-import React from 'react'
-import { styled } from 'styled-components';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Face Scan | AI Skin Analysis</title>
 
-const FaceScanningPage = () => {
-  return (
-  <FaceScanContainer>
-   
-    <div class="content">
-      <div class="badge">🌿 Skin Data Form</div>
-
-      <h1>
-        Face Scan<br />
-        <span>AI-Powered Analysis</span>
-      </h1>
-
-      <p class="description">
-        Unlock your personalized skincare routine. Our advanced AI scans your
-        skin to identify unique needs and recommend the perfect regimen tailored
-        just for you.
-      </p>
-
-      <div class="buttons">
-        <button class="btn-primary">Start Analysis →</button>
-        <button class="btn-secondary">Learn More</button>
-      </div>
-    </div>
-
-    
-    <div class="scan-card">
-      <img
-        src="https://i.imgur.com/3s6XQpE.png"
-        alt="AI Face Scan"
-        class="scan-image"
-      />
-
-      <div class="status">
-        <div>
-          <small>STATUS</small>
-          <p>Ready to Scan</p>
-        </div>
-        <div class="status-icon">😊</div>
-      </div>
-    </div>
-
-
-
-  </FaceScanContainer>
-  )
-}
-
-export default FaceScanningPage
-
-const FaceScanContainer = styled.main`
-
-      /* width: 90%;
-      max-width: 1200px;
-      display: flex;
-      align-items: center;
-      gap: 90px;
-      background: var(--background);
-      color: var(--text-dark);
-      justify-content: center; */
-
-
-      width: 90%;
-      display: flex;
-      align-items: center;
-      background: #f9fbf8;
-      color:#1f2d23 ;
-      justify-content: center;
-      margin: auto;
-      border-radius: 20px;
-      height:600px;
-      padding: 30px;
-
-
-      /* :root {
+  <style>
+    :root {
       --primary: #5f8466;
       --primary-dark: #4c6e57;
       --background: #f9fbf8;
@@ -83,9 +14,9 @@ const FaceScanContainer = styled.main`
       --text-muted: #6c7a71;
       --border: #e5ece7;
       --shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-    } */
+    }
 
-    /* * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -98,9 +29,17 @@ const FaceScanContainer = styled.main`
       min-height: 100vh;
       display: flex;
       align-items: center;
-    } */
+    }
 
-   
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 90px;
+    }
 
     .content {
       max-width: 480px;
@@ -111,7 +50,7 @@ const FaceScanContainer = styled.main`
       align-items: center;
       gap: 6px;
       background: #edf3ee;
-      color: #5f8466;
+      color: var(--primary);
       padding: 7px 16px;
       border-radius: 30px;
       font-size: 13px;
@@ -128,13 +67,13 @@ const FaceScanContainer = styled.main`
 
     h1 span {
       font-weight: 400;
-      color: #6c7a71;
+      color: var(--text-muted);
       font-size: 36px;
     }
 
     .description {
       font-size: 16px;
-      color: #6c7a71;
+      color: var(--text-muted);
       line-height: 1.65;
       margin-bottom: 38px;
     }
@@ -146,7 +85,7 @@ const FaceScanContainer = styled.main`
     }
 
     .btn-primary {
-      background: #5f8466;
+      background: var(--primary);
       color: #fff;
       border: none;
       padding: 15px 28px;
@@ -158,19 +97,19 @@ const FaceScanContainer = styled.main`
     }
 
     .btn-primary:hover {
-      background: #4c6e57;
+      background: var(--primary-dark);
       transform: translateY(-1px);
     }
 
     .btn-secondary {
       background: transparent;
-      border: 1px solid  #e5ece7;
+      border: 1px solid var(--border);
       padding: 15px 28px;
       border-radius: 30px;
       font-size: 15px;
       font-weight: 500;
       cursor: pointer;
-      color: #1f2d23;
+      color: var(--text-dark);
       transition: all 0.3s ease;
     }
 
@@ -181,10 +120,10 @@ const FaceScanContainer = styled.main`
     
     .scan-card {
       width: 400px;
-      background: #ffffff;
+      background: var(--card);
       border-radius: 26px;
       padding: 32px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      box-shadow: var(--shadow);
     }
 
     .scan-image {
@@ -197,7 +136,7 @@ const FaceScanContainer = styled.main`
     .status {
       margin-top: 24px;
       padding-top: 16px;
-      border-top: 1px solid  #e5ece7;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -206,7 +145,7 @@ const FaceScanContainer = styled.main`
     .status small {
       font-size: 11px;
       letter-spacing: 1px;
-      color: #6c7a71;
+      color: var(--text-muted);
     }
 
     .status p {
@@ -248,6 +187,52 @@ const FaceScanContainer = styled.main`
         width: 100%;
       }
     }
+  </style>
+</head>
 
+<body>
 
-`;
+  <div class="container">
+
+   
+    <div class="content">
+      <div class="badge">🌿 Skin Data Form</div>
+
+      <h1>
+        Face Scan<br />
+        <span>AI-Powered Analysis</span>
+      </h1>
+
+      <p class="description">
+        Unlock your personalized skincare routine. Our advanced AI scans your
+        skin to identify unique needs and recommend the perfect regimen tailored
+        just for you.
+      </p>
+
+      <div class="buttons">
+        <button class="btn-primary">Start Analysis →</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
+    </div>
+
+    
+    <div class="scan-card">
+      <img
+        src="https://i.imgur.com/3s6XQpE.png"
+        alt="AI Face Scan"
+        class="scan-image"
+      />
+
+      <div class="status">
+        <div>
+          <small>STATUS</small>
+          <p>Ready to Scan</p>
+        </div>
+        <div class="status-icon">😊</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
