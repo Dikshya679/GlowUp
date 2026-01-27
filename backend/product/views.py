@@ -5,6 +5,43 @@ from .serializer import ProductSerializer
 from .models import Product
 from django.db import DatabaseError
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from rest_framework import status
+
+
+
+@api_view(['GET'])
+def product_view(request):
+   products = Product.objects.all()
+   serializer = ProductSerializer(products,many=True)
+   return Response(serializer.data)
+
+@api_view(['GET'])  
+def product_view_by_id(request, id):
+   try:
+      product = Product.objects.get(id=id)
+      serializer = ProductSerializer(product)
+      if serializer.is_valid():
+        return Response(serializer.data)
+   except Product.DoesNotExist:
+      return Response({'error':'Product not found!!'},status=404)
+      
+
+@api_view(['PUT','PATCH'])
+def product_update(request,id):
+   product = get_object_or_404(id=id)
+   is_partial = (request.method == "PATCH")
+   serializer = ProductSerializer(instance = product, data = request.data, patch =is_partial)
+   if serializer.is_valid():
+      serializer.save()
+      return Response(serializer.data)
+   return Response(serializer.errors, status= 400)
+   
+@api_view(['DELETE'])
+def product_delete(request,id):
+   product = get_object_or_404(id=id)
+   product.objects.delete()
+   return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['POST','GET'])
