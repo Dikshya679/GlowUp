@@ -24,8 +24,6 @@ const handleChange=(e)=>
 const handleSubmit =async (e)=>
 {
   e.preventDefault();
-
-
   const options ={
     method:"POST",
     headers:{
