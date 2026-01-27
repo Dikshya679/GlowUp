@@ -7,16 +7,18 @@ import SearchResults from './elementComponent/SearchResults';
 // import useProductfetch from '../hooks/useProductFetch';
 const ProductPage = () => {
   // const {data} = useProductfetch("http://127.0.0.1:8000/product/view/");
+  const [data , setData] = useState(null)
   const [selectedFilterBtn,setSelectedFilterBtn] = useState("All")
   const [filteredProduct, setFilteredData] = useState(null)
 const [searchStatus, setSearchStatus] = useState(false)
+const [recommend , setRecommend] = useState(true)
 
   useEffect(() => {
     const fetchProductData = async () => {
       try {
         const response = await fetch("http://127.0.0.1:8000/product/view/",{method:"GET"});
         const json = await response.json();
-        console.log(json);
+        setData(json);
         setFilteredData(json);
       } catch (error) {
 throw new Error(error)      }
@@ -27,13 +29,15 @@ throw new Error(error)      }
 
 const filterData=(type)=>
 {
-if(type == "All")
+setRecommend(false)
+if(type === "All")
 {
-  setFilteredData(filteredProduct)
+  setRecommend(true)
+  setFilteredData(data)
   setSelectedFilterBtn("All");
   return;
 }
-const filter = filteredProduct?.filter((product)=>
+const filter = data?.filter((product)=>
 product.product_type.toLowerCase().includes(type.toLowerCase()))
 setFilteredData(filter)
 setSelectedFilterBtn(type);
@@ -44,11 +48,16 @@ setSelectedFilterBtn(type);
 const searchproduct =(e)=>
 {
   setSearchStatus(true)
+  setRecommend(false)
 const searchValue = e.target.value;
 if(searchValue == "")
 {
   setSearchStatus(false)
 }
+const filter = data?.filter((product)=>
+product.product_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+    product.product_type.toLowerCase().includes(searchValue.toLowerCase()))
+setFilteredData(filter)
 }
 
 const filterButtons=[
@@ -115,12 +124,19 @@ const recommendedProducts= [
 {!searchStatus && <ProductContainer>
 
 {/* Recommended Product Container */}
+{
+  recommend && 
+  <>
   <h3>Recommended products</h3>
 <div className="RecommendedProducts">
  {recommendedProducts.map((product, index)=>(
   <div key={index} className='productCardContaineer'><ProductCard product={product}/></div>
  ))}
 </div>
+  </>
+
+
+}
 {/* Recommended Product Container */}
 
 
@@ -135,7 +151,8 @@ const recommendedProducts= [
 {/* Product Container */}
 
 </ProductContainer>}
-{searchStatus && <SearchResults products={recommendedProducts}/>}
+
+{searchStatus && <SearchResults products={filteredProduct}/>}
 
   </MainContainer>
 }
