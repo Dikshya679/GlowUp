@@ -1,9 +1,15 @@
 import React from 'react'
+import { styled } from 'styled-components';
 
 const SkinDataForm = () => {
   return (
-    <div>skinDataForm</div>
-  )
+ 
+ <SkinDataform>
+ 
+ </SkinDataform> )
 }
 
 export default SkinDataForm
+const SkinDataform= styled.main`
+
+`;
