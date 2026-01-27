@@ -1,44 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const FeedbackPage = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    emailId: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("SUBMIT CLICKED");
+  
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/feedback/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (!response.ok) {
+        const text = await response.text();
+        console.error("Backend error:", text);
+        alert("Server error. Check backend URL.");
+        return;
+      }
+  
+      const data = await response.json();
+      console.log(data);
+  
+      alert("Feedback submitted successfully!");
+  
+      setFormData({
+        username: '',
+        emailId: '',
+        message: ''
+      });
+  
+    } catch (error) {
+      console.error("Network error:", error);
+    }
+  };
+  
   return (
     <FeedbackContainer>
-      <form className="form-container" action="/server" method="post">
-      <h2>Feedback Form</h2>
-      <label htmlFor="username">Name</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Enter your name"
-        required
-      />
+      <form className="form-container" onSubmit={handleSubmit}>
+        <h2>Feedback Form</h2>
 
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="emailId"
-        placeholder="Enter your email"
-        required
-      />
+        <label>Name</label>
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          placeholder="Enter your name"
+          required
+        />
 
-      <label htmlFor="message">Feedback</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="4"
-        placeholder="Write your feedback here..."
-        required
-      ></textarea>
+        <label>Email</label>
+        <input
+          type="email"
+          name="emailId"
+          value={formData.emailId}
+          onChange={handleChange}
+          placeholder="Enter your email"
+          required
+        />
 
-      <button type="submit">Submit Feedback</button>
-    </form>
+        <label>Feedback</label>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows="4"
+          placeholder="Write your feedback here..."
+          required
+        />
+
+        <button type="submit">Submit Feedback</button>
+      </form>
     </FeedbackContainer>
 
   );
 };
+
 
 export default FeedbackPage;
 

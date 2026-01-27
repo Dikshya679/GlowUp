@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 EXTERNAL_APP = [
     'account',
     'rest_framework',
+    'feedback',
     'product'
 ]
 

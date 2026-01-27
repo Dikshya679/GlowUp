@@ -44,7 +44,7 @@ navigate("/login");
   <li><Link to="/datafillUp">Skin Data form</Link></li>
   <li><Link to="/faceScanPage">Face Scan</Link></li>
   <li><Link to="/Searchproducts">SearchResults</Link></li>
-  <li><Link to="/feedbackPage">Feedback</Link></li>
+  <li><Link to="/feedback">Feedback</Link></li>
 {!loginStatus && <RlButton name="LogIn" link="/login"/>}
 { !loginStatus  && <RlButton name="Register" link="/register"/>}
 {loginStatus && <RlButton name="LogOut" onClick={logout}/>}
