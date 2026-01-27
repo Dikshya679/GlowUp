@@ -14,13 +14,7 @@ const ProductCard = ({ product }) => {
         <span className="type">{product.product_type}</span>
         <span className="brand">{product.brand}</span>
 
-        <p className="benefit">
-            <b>Works for:</b>
-            {/* {product.notable_effects} */}
-          {product.notable_effects.map((notable_effects,index)=>(
-            <span key={index}>{" "+notable_effects+" "}</span>
-          ))}
-        </p>
+      
 
         <p className="skinType">
           <b>Suitable for:</b> {product.skin_type}
@@ -39,6 +33,14 @@ const ProductCard = ({ product }) => {
     </Card>
   );
 };
+
+//  <p className="benefit">
+//             <b>Works for:</b>
+//             {/* {product.notable_effects} */}
+//           {product.notable_effects?.map((notable_effects,index)=>(
+//             <span key={index}>{" "+notable_effects+" "}</span>
+//           ))}
+//         </p>
 
 export default ProductCard;
 

@@ -102,3 +102,6 @@ def forgot_password(request):
 
     except json.JSONDecodeError:
         return JsonResponse({"error": "Invalid JSON"}, status=400)
+
+
+
