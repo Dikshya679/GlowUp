@@ -25,7 +25,7 @@ const SkinDataForm = () => {
           <InfoCard>
             <span>Skin Tone</span>
             <strong>
-              <Dot /> Medium
+              <Dot /> None
             </strong>
           </InfoCard>
 

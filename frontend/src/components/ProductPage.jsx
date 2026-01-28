@@ -71,7 +71,7 @@ const filterButtons=[
     },
   {
     name: "Toner",
-    type:"Toners",
+    type:"Toner",
   },
   {
     name: "Serum",
@@ -90,11 +90,11 @@ const filterButtons=[
 
 
 const recommendedProducts= [
-{'Unnamed: 0': 0, 'product_name': 'ACWELL Bubble Free PH Balancing Cleanser', 'product_type': 'Face Wash', 'brand': 'ACWELL ', 'notable_effects': ['Acne-Free', 'Pore-Care', 'Brightening', 'Anti-Aging'], 'skin_type': ['Oily'], 'price': 'Rp 209.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/ACWELL_BUBBLE_FREE_PH_BALANCING_CLEANSER.jpg', 'description': "Removes dirt and removes makeup in 1 step, while maintaining the skin's natural pH. Gently cleanses skin without feeling dry and tight. With Centella, Aloe and Witch Hazel extracts which moisturize and soothe, and salicylic acid helps prevent acne. -No harmful chemicals, parabens, artificial dyes, mineral oil, sulfates. -Suitable for all skin types", 'rating': 4.3},
-{'Unnamed: 0': 1, 'product_name': 'ACWELL pH Balancing Soothing Cleansing Foam', 'product_type': 'Face Wash', 'brand': 'ACWELL ', 'notable_effects': ['Soothing', 'Balancing'], 'skin_type': ['Normal', 'Dry', 'Combination'], 'price': 'Rp 181.800', 'picture_src': 'https://images.soco.id/8f08ced0-344d-41f4-a15e-9e45c898f92d-.jpg', 'description': 'Cleanses and soothes sensitive skin with dense bubbles. Gently cleanses dirt and sebum, keeping skin moist', 'rating': 1.78},
-{'Unnamed: 0': 8, 'product_name': 'AHC Peony Bright Clearing Toner ', 'product_type': 'Toner', 'brand': 'AHC', 'notable_effects': ['Pore-Care', 'Brightening', 'Anti-Aging'], 'skin_type': ['Oily'], 'price': 'Rp 499.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/PEONY_BRIGHT_CLEANING_TONER.jpg', 'description': 'A light toner that can remove dirt after washing your face and smooth the texture of your face. *Brightening effect from Pink Peony flower extract.', 'rating': 1.38},
-{'Unnamed: 0': 9, 'product_name': 'AHC Hyaluronic Toner ', 'product_type': 'Toner', 'brand': 'AHC', 'notable_effects': ['Anti-Aging'], 'skin_type': ['Oily'], 'price': 'Rp 389.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/HYALURONIC_TONER.jpg', 'description': 'Contains Hyaluronic Acid which moisturizes dry and dehydrated skin, able to replace lost moisture in dry and dull skin, making skin look moist and supple. *Able to remove residual dirt that remains after washing your face and prepare the skin for the next skincare step *Contains herbal and floral essences that restore radiance to dull skin', 'rating': 3.42},
-{'Unnamed: 0': 10, 'product_name': 'AHC Peony Bright Luminous Serum', 'product_type': 'Serum', 'brand': 'AHC', 'notable_effects': ['Brightening', 'Anti-Aging', 'UV-Protection'], 'skin_type': ['Oily'], 'price': 'Rp 574.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/PEONY_BRIGHT_LUMINOUS_SERUM.jpg', 'description': 'Light serum that can brighten the skin and keep it radiant *Brightening effect from Pink Peony flower extract', 'rating': 2.3}
+{'Unnamed: 0': 0, 'product_name': 'ACWELL Bubble Free PH Balancing Cleanser', 'product_type': 'Face Wash', 'brand': 'ACWELL ', 'notable_effects': ['Acne-Free', 'Pore-Care', 'Brightening', 'Anti-Aging'], 'skin_type': ['Oily'], 'price': 'Rs 209.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/ACWELL_BUBBLE_FREE_PH_BALANCING_CLEANSER.jpg', 'description': "Removes dirt and removes makeup in 1 step, while maintaining the skin's natural pH. Gently cleanses skin without feeling dry and tight. With Centella, Aloe and Witch Hazel extracts which moisturize and soothe, and salicylic acid helps prevent acne. -No harmful chemicals, parabens, artificial dyes, mineral oil, sulfates. -Suitable for all skin types", 'rating': 4.3},
+{'Unnamed: 0': 1, 'product_name': 'ACWELL pH Balancing Soothing Cleansing Foam', 'product_type': 'Face Wash', 'brand': 'ACWELL ', 'notable_effects': ['Soothing', 'Balancing'], 'skin_type': ['Normal', 'Dry', 'Combination'], 'price': 'Rs 181.800', 'picture_src': 'https://images.soco.id/8f08ced0-344d-41f4-a15e-9e45c898f92d-.jpg', 'description': 'Cleanses and soothes sensitive skin with dense bubbles. Gently cleanses dirt and sebum, keeping skin moist', 'rating': 1.78},
+{'Unnamed: 0': 8, 'product_name': 'AHC Peony Bright Clearing Toner ', 'product_type': 'Toner', 'brand': 'AHC', 'notable_effects': ['Pore-Care', 'Brightening', 'Anti-Aging'], 'skin_type': ['Oily'], 'price': 'Rs 499.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/PEONY_BRIGHT_CLEANING_TONER.jpg', 'description': 'A light toner that can remove dirt after washing your face and smooth the texture of your face. *Brightening effect from Pink Peony flower extract.', 'rating': 1.38},
+{'Unnamed: 0': 9, 'product_name': 'AHC Hyaluronic Toner ', 'product_type': 'Toner', 'brand': 'AHC', 'notable_effects': ['Anti-Aging'], 'skin_type': ['Oily'], 'price': 'Rs 389.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/HYALURONIC_TONER.jpg', 'description': 'Contains Hyaluronic Acid which moisturizes dry and dehydrated skin, able to replace lost moisture in dry and dull skin, making skin look moist and supple. *Able to remove residual dirt that remains after washing your face and prepare the skin for the next skincare step *Contains herbal and floral essences that restore radiance to dull skin', 'rating': 3.42},
+{'Unnamed: 0': 10, 'product_name': 'AHC Peony Bright Luminous Serum', 'product_type': 'Serum', 'brand': 'AHC', 'notable_effects': ['Brightening', 'Anti-Aging', 'UV-Protection'], 'skin_type': ['Oily'], 'price': 'Rs 574.000', 'picture_src': 'https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/PEONY_BRIGHT_LUMINOUS_SERUM.jpg', 'description': 'Light serum that can brighten the skin and keep it radiant *Brightening effect from Pink Peony flower extract', 'rating': 2.3}
 ]
 
 
@@ -127,7 +127,7 @@ const recommendedProducts= [
 {
   recommend && 
   <>
-  <h3>Recommended products</h3>
+  <h3>Recommended for you</h3>
 <div className="RecommendedProducts">
  {recommendedProducts.map((product, index)=>(
   <div key={index} className='productCardContaineer'><ProductCard product={product}/></div>

@@ -43,7 +43,7 @@ navigate("/login");
   <li><Link to="/profile">Profile</Link></li>
   <li><Link to="/datafillUp">Skin Data form</Link></li>
   <li><Link to="/faceScanPage">Face Scan</Link></li>
-  <li><Link to="/Searchproducts">SearchResults</Link></li>
+  {/* <li><Link to="/Searchproducts">SearchResults</Link></li> */}
   <li><Link to="/feedback">Feedback</Link></li>
 {!loginStatus && <RlButton name="LogIn" link="/login"/>}
 { !loginStatus  && <RlButton name="Register" link="/register"/>}
@@ -73,7 +73,7 @@ ul{
 }
 ul li{
   font-weight: 600;
-  font-size: 19px;
+  font-size: 16px;
   cursor: pointer;
   &:hover{
 background-color: #86A788;

@@ -21,6 +21,7 @@ const App = () => {
  <Route path="/profile" element={<Dashboard />} />
 <Route path="/faceScanPage" element={<FaceScanningPage />} />
 <Route path="/feedback" element={<FeedbackPage />} />
+<Route path="/datafillUp" element={<SkinDataForm />} />
 <Route path="/Searchproducts" element={<SearchResults />} />
 </Route>
 

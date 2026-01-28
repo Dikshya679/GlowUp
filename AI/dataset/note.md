@@ -6,6 +6,36 @@ okay
        'notable_effects', 'skintype', 'price', 'description', 'picture_src',
        'labels', 'Sensitive', 'Combination', 'Oily', 'Dry', 'Normal']
 
+
+# list of columns:
+picture_src => Product Image Link
+product_name => Product Name
+product_type => Product Type 
+brand => Brand Name
+notable_effects => Skin effects/benefits
+skintype => Suitable skin type
+price => Product Price
+description => Product Description
+
+
+# list of skin type
+Oily
+Normal
+Dry
+Combination
+Sensitive
+
+
+# list of product type
+Face Wash
+Toner
+Serum
+Moisturizer
+Sunscreen
+
+
+
+
 # unique items in notable_effects
 Moisturizing
 Soothing
