@@ -1,74 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
-import { useState } from "react";
+// import { useState } from "react";
 
 const SkinDataForm = () => {
   const [showMore, setShowMore] = useState(false);
+  
+  const [selectedSkinTypes, setSelectedSkinTypes] = useState([]);
+  const [selectedConcerns, setSelectedConcerns] = useState([]);
+
+  const handleToggle = (item, list, setList) => {
+    if (list.includes(item)) {
+      setList(list.filter(i => i !== item)); 
+    } else {
+      setList([...list, item]); 
+    }
+  };
+
+  
+  const handleUpdate = async () => {
+    const userEmail = localStorage.getItem("userEmail"); 
+    const UserSkinData = {
+      email: userEmail,
+      skin_type: selectedSkinTypes.join(", "), 
+      skin_concerns: selectedConcerns.join(", ")
+    };
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/update-skin/', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(UserSkinData),
+      });
+
+      if (response.ok) {
+        alert("Skin info Updated Successfully!");
+      } else {
+        alert("Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <SkinDataform>
-     <div className="skin-form-page">
       <div className="skin-form-container">
         <h1>What is your skin type?</h1>
-        <p className="subtitle">Select all that apply.</p>
-
         <div className="grid">
           {["Normal", "Dry", "Oily", "Combination", "Sensitive"].map((t) => (
             <label key={t}>
-              <input type="checkbox" />
+              <input 
+                type="checkbox" 
+                onChange={() => handleToggle(t, selectedSkinTypes, setSelectedSkinTypes)}
+              />
               <div className="card">{t}</div>
             </label>
           ))}
         </div>
 
         <h2 style={{ marginTop: 40 }}>Primary Concerns</h2>
-
         <div className="pills">
           {["Moisturizing", "Soothing", "Pore Care", "Acne Spot"].map((c) => (
             <label key={c}>
-              <input type="checkbox" />
+              <input 
+                type="checkbox" 
+                onChange={() => handleToggle(c, selectedConcerns, setSelectedConcerns)}
+              />
               <div className="pill">{c}</div>
             </label>
           ))}
-
-          <div
-            className="pill more-pill"
-            onClick={() => setShowMore(!showMore)}
-          >
+          <div className="pill more-pill" onClick={() => setShowMore(!showMore)}>
             {showMore ? "– Less" : "+ More"}
           </div>
         </div>
 
-        {showMore && (
-          <div className="pills">
-            {["Pigmentation", "Redness", "Fine Lines", "Dullness"].map((c) => (
-              <label key={c}>
-                <input type="checkbox" />
-                <div className="pill">{c}</div>
-              </label>
-            ))}
-          </div>
-        )}
 
-        <button>Update Info</button>
+        <button onClick={handleUpdate}>Update Info</button>
       </div>
-    </div>
-    
     </SkinDataform>
-   
   );
 };
-
 export default SkinDataForm;
 const SkinDataform= styled.main`
  .skin-form-page {
-          padding: 60px 20px;   /* spacing under navbar */
+          padding: 60px 20px;   
           width: 100%;
         }
 
         .skin-form-container {
           max-width: 900px;
-          margin: 0 auto;      /* center horizontally only */
+          margin: 0 auto;      
           background: white;
           padding: 40px;
           border-radius: 24px;

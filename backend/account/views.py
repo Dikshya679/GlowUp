@@ -4,7 +4,6 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.views.decorators.csrf import csrf_exempt
-# Create your views here.
 
 #register
 @csrf_exempt
@@ -105,3 +104,32 @@ def forgot_password(request):
 
 
 
+@csrf_exempt
+def update_skin_info(request):
+    if request.method == 'PUT':
+        try:
+            
+            data = json.loads(request.body)
+            user_email = data.get('email')  
+            new_skin_type = data.get('skin_type')
+            user_skin_concerns = data.get('skin_concerns')
+
+            # 2. Safety Check: Did React actually send an email?
+            if not user_email:
+                return JsonResponse({'error': 'No email provided'}, status=400)
+    
+            
+            # 3. Find the user
+            user = User.objects.get(email=user_email)
+            
+            # 4. Update the user 
+            user.profile.skin_type = new_skin_type
+            user.profile.skin_concerns = user_skin_concerns
+            user.profile.save()
+            
+            return JsonResponse({'message': 'Success!'}, status=200)
+
+        except User.DoesNotExist:
+            return JsonResponse({'error': 'User not found'}, status=404)
+    
+    return JsonResponse({'error': 'Invalid request'}, status=400)

@@ -2,16 +2,15 @@ import React, { useState ,useEffect} from 'react'
 import styled from 'styled-components'
 import RlButton from './elementComponent/Button/Button'
 import SimpleButton from './elementComponent/Button/simpleButton';
-import ProductCard from './elementComponent/recommendedProduct';
+import ProductCard from './elementComponent/ProductCard';
 import SearchResults from './elementComponent/SearchResults';
-// import useProductfetch from '../hooks/useProductFetch';
 const ProductPage = () => {
-  // const {data} = useProductfetch("http://127.0.0.1:8000/product/view/");
   const [data , setData] = useState(null)
   const [selectedFilterBtn,setSelectedFilterBtn] = useState("All")
   const [filteredProduct, setFilteredData] = useState(null)
 const [searchStatus, setSearchStatus] = useState(false)
 const [recommend , setRecommend] = useState(true)
+
 
   useEffect(() => {
     const fetchProductData = async () => {
