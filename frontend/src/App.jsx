@@ -9,6 +9,7 @@ import SearchResults from './components/elementComponent/SearchResults';
 import FeedbackPage from './components/FeebackPage';
 import Dashboard from './components/ProfilePage';
 import FaceScanningPage from './components/FaceScanningPage';
+
 const App = () => {
   return <>
 <BrowserRouter>
@@ -22,6 +23,7 @@ const App = () => {
 <Route path="/faceScanPage" element={<FaceScanningPage />} />
 <Route path="/feedback" element={<FeedbackPage />} />
 <Route path="/Searchproducts" element={<SearchResults />} />
+<Route path="/datafillup" element={<SkinDataForm />} />
 </Route>
 
 </Routes>

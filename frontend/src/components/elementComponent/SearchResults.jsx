@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './recommendedProduct';
+import ProductCard from './ProductCard';
 import styled from 'styled-components';
 
 const SearchResults = ({products}) => {

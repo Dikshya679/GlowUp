@@ -3,12 +3,18 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+db.sqlite3
+.env
+media/
+static/
 
 # Django
 db.sqlite3
 .env
 media/
 static/ 
+**/migrations/*.py
+!**/migrations/__init__.py
 
 # React / Node
 node_modules/
@@ -17,4 +23,7 @@ build/
 .DS_Store
 
 #AI
-AI/dataset
+backend/AI/*
+!backend/AI/models
+!backend/AI/requirements.txt
+backend/models

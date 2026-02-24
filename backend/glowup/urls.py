@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('account.urls')),
     path('product/', include('product.urls')),
     path('api/', include('feedback.urls')),
+    path('skintoneAnalysis/', include('skin_analysis.urls')),
 
 ]

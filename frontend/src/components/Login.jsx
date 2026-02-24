@@ -43,6 +43,7 @@ const result = await fetchData(options);
           password: "",
         });
         localStorage.setItem("isLoggedIn" , true);
+        localStorage.setItem("userEmail", formData.emailOrUsername);
         navigate('/')
       } else {
         setErrorMessage(result.error || "login failed.");

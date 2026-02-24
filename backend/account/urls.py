@@ -7,4 +7,5 @@ urlpatterns = [
     path('api/register/', views.register, name="register"),
     path('api/logout/', views.logout, name="logout"),
     path('api/forgot-password/', views.forgot_password, name="forgotPassword"),
+    path('api/update-skin/', views.update_skin_info, name='update_skin'),
 ]

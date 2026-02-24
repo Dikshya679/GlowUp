@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import RlButton from './Button/Button';
 
 const ProductCard = ({ product }) => {
+  // console.log(product)
   return (
     <Card>
       <ImageWrapper>
@@ -14,18 +15,22 @@ const ProductCard = ({ product }) => {
         <span className="type">{product.product_type}</span>
         <span className="brand">{product.brand}</span>
 
-      
 
-        <p className="skinType">
-          <b>Suitable for:</b> {product.skin_type}
-        </p>
+       <p className="skinType">
+  <b>Suitable for: </b> 
+  {String(product.skin_type || "")
+ .replace(/[[]']/g, '')
+    .split(',')
+    .map(item => item.trim()) 
+    .join(', ')               
+  }
+</p>
 
         <div className="footer">
           <span className="rating">⭐ {product.rating}</span>
           <span className="price">{product.price}</span>
         </div>
 
-        {/* <p className="description">{product.description}</p> */}
       </Info>
       <div className='addToCart'>
 <RlButton name="Add to Cart"/>
@@ -34,20 +39,13 @@ const ProductCard = ({ product }) => {
   );
 };
 
-//  <p className="benefit">
-//             <b>Works for:</b>
-//             {/* {product.notable_effects} */}
-//           {product.notable_effects?.map((notable_effects,index)=>(
-//             <span key={index}>{" "+notable_effects+" "}</span>
-//           ))}
-//         </p>
 
 export default ProductCard;
 
-// ===== Styled Components =====
+
 const Card = styled.div`
   width: 310px;
-  height: 460px;
+  height: 430px;
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
