@@ -10,6 +10,13 @@ import FeedbackPage from './components/FeebackPage';
 import Dashboard from './components/ProfilePage';
 import FaceScanningPage from './components/FaceScanningPage';
 
+// 
+import Homepage from './components/Homepage';
+import BuyPage from './components/BuyPage';
+import CartPage from './components/CartPage.Jsx';
+import DiscussionForum from './components/DiscussionForum';
+// 
+
 const App = () => {
   return <>
 <BrowserRouter>
@@ -25,6 +32,12 @@ const App = () => {
 <Route path="/datafillUp" element={<SkinDataForm />} />
 <Route path="/Searchproducts" element={<SearchResults />} />
 <Route path="/datafillup" element={<SkinDataForm />} />
+{/*  */}
+<Route path="/cartPage" element={<CartPage />} />
+<Route path="/buyPage" element={<BuyPage />} />
+<Route path="/disscussionForum" element={<DiscussionForum />} />
+<Route path="/homepage" element={<Homepage />} />
+{/*  */}
 </Route>
 
 </Routes>

@@ -11,6 +11,8 @@ const Navbar = () => {
   });
 const {profilePic} = useUserStore();
 
+
+
   return (
     <NavBarContainer>
       <ul>
@@ -18,6 +20,10 @@ const {profilePic} = useUserStore();
         <li><Link to="/datafillUp">Skin Data</Link></li>
         <li><Link to="/faceScanPage">Face Scan</Link></li>
         <li><Link to="/feedback">Feedback</Link></li>
+        <li><Link to="/cartPage">Cart</Link></li>
+        <li><Link to="/buyPage">Buy Now</Link></li>
+        <li><Link to="/disscussionForum">Forum</Link></li>
+        <li><Link to="/homepage">Home</Link></li>
 
         {!loginStatus ? (
           <AuthButtons>
