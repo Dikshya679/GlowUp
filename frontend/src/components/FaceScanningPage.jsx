@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 // import { useNavigate } from "react-router-dom";
+import useUserStore from "../store/useUserStore";
 
 
 const FaceScanningPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(false);
   // const navigate = useNavigate();
+const {email} =useUserStore();
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -40,14 +42,15 @@ const FaceScanningPage = () => {
   });
 
   const data = await response.json();
+  console.log(data)
     if (data.tone_name) {
-    const userEmail = localStorage.getItem("userEmail"); 
-
+//     const userEmail = localStorage.getItem("userEmail"); 
+// console.log(userEmail)
     const updateResponse = await fetch('http://127.0.0.1:8000/skintoneAnalysis/skintoneupdate/', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        email: userEmail,
+        email: email,
         skin_tone: data.tone_name 
       }),
     });

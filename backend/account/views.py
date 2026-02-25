@@ -4,11 +4,15 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from .models import Profile 
+
 
 #register
 @csrf_exempt
 def register(request):
-    #request method check
     if request.method != "POST":
         return JsonResponse({"error": "POST request required"})
     
@@ -104,7 +108,7 @@ def forgot_password(request):
         if not User.objects.filter(email=email).exists():
             return JsonResponse({"error": "User not found"}, status=404)
 
-        # In real apps: send reset email
+      
         return JsonResponse({
             "message": "Password reset link would be sent here"
         })
@@ -142,15 +146,11 @@ def update_skin_info(request):
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
 
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.models import User
-from .models import Profile # Make sure to import your Profile model
+
 
 @csrf_exempt
 def upload_profile_pic(request):
     if request.method == 'POST':
-        # 1. Get the email and the image from the request
         user_email = request.POST.get('email')
         image_file = request.FILES.get('image')
 
