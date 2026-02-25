@@ -18,6 +18,10 @@ const SkinDataForm = () => {
 
   
   const handleUpdate = async () => {
+   if (selectedSkinTypes.length === 0 || selectedConcerns.length === 0) {
+      alert("Please select at least one Skin Type and one Concern before updating!");
+      return; 
+    }
     const userEmail = localStorage.getItem("userEmail"); 
     const UserSkinData = {
       email: userEmail,
@@ -37,6 +41,8 @@ const SkinDataForm = () => {
 
       if (response.ok) {
         alert("Skin info Updated Successfully!");
+        setSelectedSkinTypes(null)
+        setSelectedConcerns(null)
       } else {
         alert("Something went wrong.");
       }
@@ -63,7 +69,7 @@ const SkinDataForm = () => {
 
         <h2 style={{ marginTop: 40 }}>Primary Concerns</h2>
         <div className="pills">
-          {["Moisturizing", "Soothing", "Pore Care", "Acne Spot"].map((c) => (
+          {["Moisturizing", "Soothing", "Pore Care", "Acne Spot","None"].map((c) => (
             <label key={c}>
               <input 
                 type="checkbox" 

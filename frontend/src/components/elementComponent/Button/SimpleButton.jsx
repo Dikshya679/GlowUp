@@ -14,11 +14,11 @@ outline: none;
 border: none;
 border-radius: 10px;
 font-weight: 900;
-background-color:${({$isSelected})=> ($isSelected? "#86A788":"white")};
-color: ${({$isSelected})=> ($isSelected? "white":"#86A788")};
+background-color:${({$isSelected})=> ($isSelected? "#1A3C5A":"white")};
+color: ${({$isSelected})=> ($isSelected? "white":"#1A3C5A")};
 /* border-radius: 15px 40px 15px 10px; */
 &:hover{
-  background-color: #86A788;
+  background-color: #1A3C5A;
   color:white ;
   border: 1px solid black;
   transition: all 0.2s ease-out;

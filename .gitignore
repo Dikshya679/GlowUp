@@ -27,3 +27,4 @@ backend/AI/*
 !backend/AI/models
 !backend/AI/requirements.txt
 backend/models
+AI/*
