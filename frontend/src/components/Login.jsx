@@ -86,7 +86,6 @@ const result = await fetchData(options);
   );
 };
 
-// Styled Components
 const Container = styled.div`
   background-color: #86A788;
   height: 100vh;

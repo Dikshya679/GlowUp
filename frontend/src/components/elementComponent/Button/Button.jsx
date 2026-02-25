@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; // Add this
+import { Link } from 'react-router-dom';
 
 const RlButton = ({name, link, onClick}) => {
   if (onClick) {
@@ -20,12 +20,12 @@ const RLButton = styled.button`
     background-color: #FFFFFF;
     color: #5D2E46;                        
     border: none;
-    padding: 10px 24px; /* Adjusted slightly for navbar */
+    padding: 10px 24px; 
     border-radius: 12px;                   
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
     font-weight: 600;
     letter-spacing: 0.5px;
-    cursor: pointer; /* Makes it look clickable */
+    cursor: pointer; 
     transition: all 0.3s ease;
 
     &:hover {

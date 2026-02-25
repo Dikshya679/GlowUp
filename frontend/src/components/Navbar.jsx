@@ -6,12 +6,10 @@ import RlButton from './elementComponent/Button/Button';
 import useUserStore from '../store/useUserStore';
 
 const Navbar = () => {
-  // 1. Check if the user is logged in using localStorage
   const [loginStatus] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
   });
 const {profilePic} = useUserStore();
-  // const userImage = localStorage.getItem("profilePic");
 
   return (
     <NavBarContainer>
@@ -44,7 +42,7 @@ const {profilePic} = useUserStore();
 
 export default Navbar;
 
-// --- STYLED COMPONENTS ---
+
 
 const NavBarContainer = styled.nav`
   height: 80px;
@@ -52,7 +50,7 @@ const NavBarContainer = styled.nav`
   margin: 20px auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Puts everything to the right */
+  justify-content: flex-end; 
   padding: 0 30px;
 
   ul {
@@ -82,7 +80,6 @@ const AuthButtons = styled.div`
   display: flex;
   gap: 12px;
   
-  /* This prevents the <a> tag inside RlButton from adding blue underlines */
   a {
     text-decoration: none;
   }
@@ -102,15 +99,15 @@ const AvatarWrapper = styled.div`
   transition: all 0.3s ease;
 
   &:hover {
-    transform: scale(1.08); /* Grows slightly when hovered */
+    transform: scale(1.08);
   }
 `;
 
 const UserImg = styled.img`
   width: 45px;
   height: 45px;
-  border-radius: 50%; /* Makes it a perfect circle */
-  object-fit: cover;  /* Prevents the image from stretching */
+  border-radius: 50%; 
+  object-fit: cover;  
   border: 2px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: #f0f0f0;

@@ -147,7 +147,6 @@ const FaceScanContainer = styled.main`
       max-width: 480px;
     }
 
-    /* New styles for the upload button */
     .custom-file-upload {
       display: inline-block;
       padding: 10px 20px;
