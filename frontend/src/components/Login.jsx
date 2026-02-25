@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import useFetch from '../hooks/useFetch'
 import { useNavigate } from "react-router-dom";
+import useUserStore from "../store/useUserStore";
 const Login = () => {
   const url ="http://127.0.0.1:8000/api/login/"
   const {loading, fetchData} = useFetch(url)
@@ -11,6 +12,7 @@ const Login = () => {
   })
  const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  const setUserData = useUserStore((state) => state.setUserData);
   const navigate = useNavigate();
 
 const handleChange=(e)=>
@@ -35,16 +37,25 @@ const handleSubmit =async (e)=>
     })
   }
 const result = await fetchData(options);
-
       if (result.message) {
         setSuccessMessage(result.message);
         setFormData({
           emailOrUsername: "",
           password: "",
         });
+        const userData = result.data;
+        setUserData(userData);
         localStorage.setItem("isLoggedIn" , true);
-        localStorage.setItem("userEmail", formData.emailOrUsername);
-        navigate('/')
+
+        if (userData.profilePic) {
+        const fullPicUrl = `http://127.0.0.1:8000${userData.profilePic}`;
+        setUserData({"profilePic" :fullPicUrl})
+    } else {
+        localStorage.removeItem("profilePic"); 
+    }
+
+    
+    navigate('/');
       } else {
         setErrorMessage(result.error || "login failed.");
       }

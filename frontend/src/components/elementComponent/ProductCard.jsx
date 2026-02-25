@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import RlButton from './Button/Button';
-
+import AddToCartButton from './Button/AddToCartBtn'
 const ProductCard = ({ product }) => {
   // console.log(product)
   return (
@@ -33,7 +32,7 @@ const ProductCard = ({ product }) => {
 
       </Info>
       <div className='addToCart'>
-<RlButton name="Add to Cart"/>
+<AddToCartButton name="Add to Cart"/>
       </div>
     </Card>
   );

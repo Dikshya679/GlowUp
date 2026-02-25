@@ -12,6 +12,7 @@ const [searchStatus, setSearchStatus] = useState(false)
 const [recommend , setRecommend] = useState(true)
 
 
+
   useEffect(() => {
     const fetchProductData = async () => {
       try {
@@ -160,7 +161,7 @@ export default ProductPage
 const MainContainer= styled.main`
 .headBar{
 width:100%;
-height: 130px;
+height: 90px;
 display: flex;
 flex-direction: row;
 gap: 10px;
@@ -200,10 +201,7 @@ input{
   &::placeholder{
     font-size: 17px;
   }
-
-
 }
-
 }
 .RecommendedProducts{
   padding: 30px;
