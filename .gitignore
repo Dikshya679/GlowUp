@@ -28,3 +28,4 @@ backend/AI/*
 !backend/AI/requirements.txt
 backend/models
 AI/*
+backend/profile_pics/*

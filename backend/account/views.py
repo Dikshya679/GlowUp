@@ -64,7 +64,17 @@ def login(request):
             return JsonResponse({"error": "Invalid credentials"}, status=401)
 
         django_login(request, authenticate_user)
-        return JsonResponse({"message": "Login successful"})
+
+        user_data = {
+            "id": authenticate_user.id,
+            "username": authenticate_user.username,
+            "email": authenticate_user.email,
+            "profilePic": authenticate_user.profile.profile_pic.url if authenticate_user.profile.profile_pic else None,
+            "skin_type": authenticate_user.profile.skin_type,
+            "skin_tone": authenticate_user.profile.skin_tone,
+            "skin_concerns": authenticate_user.profile.skin_concerns,
+        }
+        return JsonResponse({"message": "Login successful","data":user_data})
 
     except json.JSONDecodeError:
         return JsonResponse({"error": "Invalid JSON"}, status=400)
@@ -114,15 +124,12 @@ def update_skin_info(request):
             new_skin_type = data.get('skin_type')
             user_skin_concerns = data.get('skin_concerns')
 
-            # 2. Safety Check: Did React actually send an email?
             if not user_email:
                 return JsonResponse({'error': 'No email provided'}, status=400)
     
             
-            # 3. Find the user
             user = User.objects.get(email=user_email)
             
-            # 4. Update the user 
             user.profile.skin_type = new_skin_type
             user.profile.skin_concerns = user_skin_concerns
             user.profile.save()
@@ -133,3 +140,37 @@ def update_skin_info(request):
             return JsonResponse({'error': 'User not found'}, status=404)
     
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from .models import Profile # Make sure to import your Profile model
+
+@csrf_exempt
+def upload_profile_pic(request):
+    if request.method == 'POST':
+        # 1. Get the email and the image from the request
+        user_email = request.POST.get('email')
+        image_file = request.FILES.get('image')
+
+        if not user_email or not image_file:
+            return JsonResponse({'error': 'Missing email or image'}, status=400)
+
+        try:
+            user = User.objects.get(email=user_email)
+            
+            profile = user.profile 
+            
+            profile.profile_pic = image_file
+            profile.save()
+
+            return JsonResponse({
+                'message': 'Upload successful!',
+                'image_url': f"http://127.0.0.1:8000{profile.profile_pic.url}"
+            }, status=200)
+
+        except User.DoesNotExist:
+            return JsonResponse({'error': 'User not found'}, status=404)
+
+    return JsonResponse({'error': 'Only POST allowed'}, status=405)
