@@ -8,4 +8,5 @@ urlpatterns = [
     path('api/logout/', views.logout, name="logout"),
     path('api/forgot-password/', views.forgot_password, name="forgotPassword"),
     path('api/update-skin/', views.update_skin_info, name='update_skin'),
+    path('api/upload-profile-pic/', views.upload_profile_pic, name='upload_pic'),
 ]

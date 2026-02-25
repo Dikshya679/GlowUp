@@ -129,7 +129,6 @@ console.log(data)
 
 export default ProfilePage;
 
-// --- STYLED COMPONENTS (Design preserved) ---
 
 const SkinDataform = styled.main`
   min-height: 80vh;

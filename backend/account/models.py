@@ -2,14 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
-    # This link connects the Profile to the User
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    
-    # These are the extra pieces of info you want to save
     skin_type = models.CharField(max_length=100, blank=True, null=True)
     skin_tone = models.CharField(max_length=100, blank=True, null=True)
     skin_concerns = models.CharField(max_length=100, blank=True, null=True)
-
+    profile_pic = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
     def __str__(self):
         return f'{self.user.username} Profile'
 

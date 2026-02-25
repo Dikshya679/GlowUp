@@ -141,7 +141,7 @@ const Register = () => {
   );
 };
 
-// Styled Components
+
 const Container = styled.div`
   background-color: #86A788;
   height: 100vh;

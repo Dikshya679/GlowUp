@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import RlButton from "./elementComponent/Button/Button";
 
-// Sample products array
+
 const product = 
   {
     'Unnamed: 0': 0,
@@ -18,7 +18,7 @@ const product =
     'rating': 4.3
   };
 
-  // ... add other products
+
 
 
 const ProductDetailPage = () => {
@@ -27,7 +27,6 @@ const ProductDetailPage = () => {
   const imgRef = useRef(null);
 
 
-  // Cursor-follow zoom
   const handleMouseMove = (e) => {
     const img = imgRef.current;
     const rect = img.getBoundingClientRect();
